@@ -112,10 +112,10 @@
             android:layout_alignParentBottom="true">
 
             <Button
-                android:id="@+id/forecastButton"
+                android:id="@+id/currentWeatherButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Forecast" />
+                android:text="Back to current weather" />
         </LinearLayout>
     </RelativeLayout>
 

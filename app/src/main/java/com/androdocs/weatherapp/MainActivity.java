@@ -1,9 +1,11 @@
 
 package com.androdocs.weatherapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,17 +20,24 @@ import java.util.Date;
 import java.util.Locale;
 
     public class MainActivity extends AppCompatActivity {
-
+        private Button forecastButton;
         String CITY = "serres,gr";
         String API = "d830ac00c13e0f678ca1c3a9112a62e8";
 
-        TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt,  windTxt, pressureTxt, humidityTxt;
+        TextView addressTxt, updated_atTxt, statusTxt, tempTxt,  windTxt, pressureTxt, humidityTxt;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+            forecastButton = findViewById(R.id.forecastButton);
+            forecastButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openForecastActivity();
+                }
+            });
             addressTxt = findViewById(R.id.address);
             updated_atTxt = findViewById(R.id.updated_at);
             statusTxt = findViewById(R.id.status);
@@ -99,5 +108,9 @@ import java.util.Locale;
                 }
 
             }
+        }
+        public void openForecastActivity(){
+            Intent intent = new Intent(this, ForecastActivity.class);
+            startActivity(intent);
         }
     }
