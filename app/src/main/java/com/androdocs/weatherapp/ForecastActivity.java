@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.httprequest.HttpRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +24,7 @@ import java.util.Locale;
 
 public class ForecastActivity extends Activity {
     private Button currentWeatherButton;
-    String CITY = "thessaloniki,gr";
+    String CITY = "serres,gr";
     String API = "d830ac00c13e0f678ca1c3a9112a62e8";
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt,  windTxt, pressureTxt, humidityTxt;
@@ -64,7 +65,7 @@ public class ForecastActivity extends Activity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/forecast?q=" + CITY + "&cnt=2&units=metric&appid=" + API);
             return response;
         }
 
@@ -74,31 +75,38 @@ public class ForecastActivity extends Activity {
 
             try {
                 JSONObject jsonObj = new JSONObject(result);
-                JSONObject main = jsonObj.getJSONObject("main");
-                JSONObject sys = jsonObj.getJSONObject("sys");
-                JSONObject wind = jsonObj.getJSONObject("wind");
-                JSONObject weather = jsonObj.getJSONArray("weather").getJSONObject(0);
+                JSONObject city = jsonObj.getJSONObject("city");
+                JSONObject list = jsonObj.getJSONArray("list").getJSONObject(0);
+                JSONObject main = list.getJSONObject("main");
 
-                Long updatedAt = jsonObj.getLong("dt");
-                String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
+
+                Long updatedAt = list.getLong("dt");
+                String updatedAtText = "Πρόβλεψη για: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
                 String temp = main.getString("temp") + "°C";
-                String pressure = main.getString("pressure") + " hpa";
-                String humidity = main.getString("humidity") + "%";
+                    String address = city.getString("name") + "," + city.getString("country");
 
-                String windSpeed = wind.getString("speed");
-                String weatherDescription = weather.getString("description");
 
-                String address = jsonObj.getString("name") + ", " + sys.getString("country");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 /* Populating extracted data into our views */
-                addressTxt.setText(address);
+
+
                 updated_atTxt.setText(updatedAtText);
-                statusTxt.setText(weatherDescription.toUpperCase());
                 tempTxt.setText(temp);
-                windTxt.setText(windSpeed);
-                pressureTxt.setText(pressure);
-                humidityTxt.setText(humidity);
+                addressTxt.setText(address);
+
 
                 /* Views populated, Hiding the loader, Showing the main design */
                 findViewById(R.id.loader).setVisibility(View.GONE);
