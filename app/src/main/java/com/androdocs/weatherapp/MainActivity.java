@@ -4,27 +4,41 @@ package com.androdocs.weatherapp;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.httprequest.HttpRequest;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
-    public class MainActivity extends AppCompatActivity {
-        private Button forecastButton;
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+    private Button forecastButton;
         String CITY = "serres,gr";
         String API = "d830ac00c13e0f678ca1c3a9112a62e8";
-
+        // Access a Cloud Firestore instance from your Activity
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         TextView addressTxt, updated_atTxt, statusTxt, tempTxt,  windTxt, pressureTxt, humidityTxt;
+
+        Map<String, Object> weatherhm = new HashMap<>();
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +111,27 @@ import java.util.Locale;
                     pressureTxt.setText(pressure);
                     humidityTxt.setText(humidity);
 
+                    weatherhm.put("update_time", updatedAtText);
+                    weatherhm.put("weather_description", weatherDescription);
+                    weatherhm.put("temperature", temp);
+
+                    db.collection("weatherdb")
+                            .add(weatherhm)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+                                }
+                            });
+
+
+
                     /* Views populated, Hiding the loader, Showing the main design */
                     findViewById(R.id.loader).setVisibility(View.GONE);
                     findViewById(R.id.mainContainer).setVisibility(View.VISIBLE);
@@ -109,6 +144,10 @@ import java.util.Locale;
 
             }
         }
+
+
+
+
         public void openForecastActivity(){
             Intent intent = new Intent(this, ForecastActivity.class);
             startActivity(intent);
