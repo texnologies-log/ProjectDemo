@@ -117,6 +117,16 @@
                 android:layout_height="match_parent"
                 android:text="Forecast" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/weatherButton"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonContainer"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="97dp"
+            android:layout_marginBottom="3dp"
+            android:text="Dark Sky" />
     </RelativeLayout>
 
 

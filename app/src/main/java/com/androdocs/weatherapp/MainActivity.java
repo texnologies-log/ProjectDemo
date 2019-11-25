@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private Button forecastButton;
+    private Button weatherButton;
+
         String CITY = "serres,gr";
         String API = "d830ac00c13e0f678ca1c3a9112a62e8";
         // Access a Cloud Firestore instance from your Activity
@@ -51,7 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     openForecastActivity();
                 }
+
             });
+
+            weatherButton.findViewById(R.id.weatherButton);
+            weatherButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openForecastActivity2();
+                }
+            });
+
+
+
+
             addressTxt = findViewById(R.id.address);
             updated_atTxt = findViewById(R.id.updated_at);
             statusTxt = findViewById(R.id.status);
@@ -152,4 +167,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ForecastActivity.class);
             startActivity(intent);
         }
+    public void openForecastActivity2(){
+        Intent intent = new Intent(this, WeatherBit.class);
+        startActivity(intent);
+    }
+
+
     }
