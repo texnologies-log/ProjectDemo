@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "644719698567",
+    "firebase_url": "https://weatherappsavvas.firebaseio.com",
+    "project_id": "weatherappsavvas",
+    "storage_bucket": "weatherappsavvas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644719698567:android:b862f2aeed5f574cb84e22",
+        "android_client_info": {
+          "package_name": "com.androdocs.weatherapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644719698567-l3sf3uhflif0uv0124s8ogpuhrfn994m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFXwajox69jb8isfqKpvQfAmstzjW-I80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644719698567-l3sf3uhflif0uv0124s8ogpuhrfn994m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

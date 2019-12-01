@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:background="@drawable/bg_gradient">
+
+    <RelativeLayout android:id="@+id/mainContainer" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:visibility="visible">
+        <LinearLayout android:id="@+id/addressContainer" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center">
+            <Space android:layout_width="wrap_content" android:layout_height="30dp"/>
+            <TextView android:id="@+id/tipota" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="15dp"
+                android:text="Προβλέψεις για 5 ημέρες για την πόλη:" android:textColor="#FFFFFF"/>
+            <TextView android:id="@+id/address" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="24dp"
+                android:text="DHAKA, BD" android:textColor="#FFFFFF"/>
+            <Space android:layout_width="wrap_content" android:layout_height="20dp"/>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout android:id="@+id/overviewContainer1.0" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/addressContainer">
+            <TextView android:id="@+id/prognosi1" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="13dp"
+                android:text="20 April 2012, 20:08 PM" android:textAlignment="center" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer1.1" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer1.0"><TextView android:id="@+id/status" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="17dp"
+            android:layout_gravity="center"
+            android:text="Clear Sky" android:textColor="#FFFFFF"/></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer1.2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer1.1">
+        <TextView android:id="@+id/temp" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="25dp"
+            android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+            android:text="29°C" android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+        <LinearLayout android:id="@+id/overviewContainer2.0" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer1.2">
+            <TextView android:id="@+id/prognosi2" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="13dp"
+                android:text="20 April 2012, 20:08 PM" android:textAlignment="center" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer2.1" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer2.0"><TextView android:id="@+id/status2" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="17dp"
+            android:layout_gravity="center"
+            android:text="Clear Sky" android:textColor="#FFFFFF"/></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer2.2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer2.1">
+            <TextView android:id="@+id/temp2" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="25dp"
+                android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+                android:text="29°C" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/overviewContainer3.0" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer2.2">
+            <TextView android:id="@+id/prognosi3" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="13dp"
+                android:text="20 April 2012, 20:08 PM" android:textAlignment="center" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer3.1" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer3.0"><TextView android:id="@+id/status3" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="17dp"
+            android:layout_gravity="center"
+            android:text="Clear Sky" android:textColor="#FFFFFF"/></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer3.2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer3.1">
+            <TextView android:id="@+id/temp3" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="25dp"
+                android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+                android:text="29°C" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/overviewContainer4.0" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer3.2">
+            <TextView android:id="@+id/prognosi4" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="13dp"
+                android:text="20 April 2012, 20:08 PM" android:textAlignment="center" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer4.1" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer4.0"><TextView android:id="@+id/status4" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="17dp"
+            android:layout_gravity="center"
+            android:text="Clear Sky" android:textColor="#FFFFFF"/></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer4.2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer4.1">
+            <TextView android:id="@+id/temp4" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="25dp"
+                android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+                android:text="29°C" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/overviewContainer5.0" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer4.2">
+            <TextView android:id="@+id/prognosi5" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="13dp"
+                android:text="20 April 2012, 20:08 PM" android:textAlignment="center" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer5.1" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer5.0"><TextView android:id="@+id/status5" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="17dp"
+            android:layout_gravity="center"
+            android:text="Clear Sky" android:textColor="#FFFFFF"/></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/overviewContainer5.2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_below="@+id/overviewContainer5.1">
+            <TextView android:id="@+id/temp5" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="25dp"
+                android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+                android:text="29°C" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+
+
+
+
+            <Space android:layout_width="wrap_content" android:layout_height="10dp"/>
+
+
+
+
+        <LinearLayout android:id="@+id/buttonContainer" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/currentWeatherButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Back to current weather" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_centerInParent="true"
+        android:visibility="gone" android:text="Something went wrong"/>
+
+
+</RelativeLayout>
