@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private Button forecastButton;
         String CITY = "serres,gr";
         String API = "d830ac00c13e0f678ca1c3a9112a62e8";
+
+
+        String latMain, lonMain;
+
+
         // Access a Cloud Firestore instance from your Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         TextView addressTxt, updated_atTxt, statusTxt, tempTxt,  windTxt, pressureTxt, humidityTxt;
@@ -60,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
             pressureTxt = findViewById(R.id.pressure);
             humidityTxt = findViewById(R.id.humidity);
 
+            latMain=getIntent().getExtras().getString("latValue");
+            lonMain=getIntent().getExtras().getString("lonValue");
+
             new weatherTask().execute();
         }
 
@@ -75,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             protected String doInBackground(String... args) {
-                String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&lang=el&units=metric&appid=" + API);
+              // String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&lang=el&units=metric&appid=" + API);
+              String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?lat=" + latMain + "&lon=" + lonMain + "&lang=el&units=metric&appid=" + API);
+              //  String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?lat=12&lon=12");
                 return response;
             }
 
