@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:background="@drawable/bg_gradient">
+
+    <RelativeLayout android:id="@+id/mainContainer" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:visibility="visible">
+        <LinearLayout android:id="@+id/searchContainer" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center">
+            <Space android:layout_width="wrap_content" android:layout_height="30dp"/>
+            <TextView android:id="@+id/tipota" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="15dp"
+            android:text="Δώστε συντεταγμένες " android:textColor="#FFFFFF"/>
+            <TextView android:id="@+id/tipota2" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="15dp"
+                android:text="για αναζήτηση καιρού:" android:textColor="#FFFFFF"/>
+            <Space android:layout_width="wrap_content" android:layout_height="120dp"/>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center"
+            android:layout_below="@+id/searchContainer" android:id="@+id/latContainer">
+            <TextView android:id="@+id/lat" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="35dp"
+                android:text="LAT :" android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/latText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="6"
+                android:hint="Βάλε το LAT"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center"
+            android:layout_below="@+id/latContainer" android:id="@+id/lonContainer">
+            <TextView android:id="@+id/lon" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="35dp"
+                android:text="LON :" android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/lonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="6"
+                android:hint="Βάλε το LON"
+                android:inputType="text" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+        <LinearLayout android:id="@+id/buttonContainer" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Confirm" />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_centerInParent="true"
+        android:visibility="gone" android:text="Something went wrong"/>
+
+
+</RelativeLayout>
