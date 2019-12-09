@@ -26,7 +26,7 @@ public class ForecastActivity extends Activity {
     private Button currentWeatherButton;
     String CITY = "serres,gr";
     String API = "d830ac00c13e0f678ca1c3a9112a62e8";
-
+    String latMainn, lonMainn;
     TextView addressTxt, prognosi1Txt, statusTxt, tempTxt, prognosi2Txt, status2Txt, temp2Txt, prognosi3Txt, status3Txt, temp3Txt, prognosi4Txt, status4Txt, temp4Txt, prognosi5Txt, status5Txt, temp5Txt;
 
     @Override
@@ -60,6 +60,11 @@ public class ForecastActivity extends Activity {
         temp5Txt = findViewById(R.id.temp5);
 
 
+
+       latMainn=getIntent().getExtras().getString("latValue");
+       lonMainn=getIntent().getExtras().getString("lonValue");
+
+
         new weatherTask().execute();
     }
 
@@ -75,7 +80,8 @@ public class ForecastActivity extends Activity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/forecast?q=" + CITY + "&lang=el&units=metric&appid=" + API);
+           // String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/forecast?q=" + CITY + "&lang=el&units=metric&appid=" + API);
+           String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/forecast?lat=" + latMainn + "&lon=" + lonMainn + "&lang=el&units=metric&appid=" + API);
             return response;
         }
 
@@ -195,7 +201,7 @@ public class ForecastActivity extends Activity {
     }
 
             public void openMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(ForecastActivity.this, MainActivity.class);
         startActivity(intent);
             }
 }
