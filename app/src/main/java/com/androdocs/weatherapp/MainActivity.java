@@ -159,7 +159,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         public void openForecastActivity(){
-            Intent intent = new Intent(this, ForecastActivity.class);
-            startActivity(intent);
+            Intent b = new Intent(MainActivity.this, ForecastActivity.class);
+            b.putExtra("latValue",latMain);
+            b.putExtra("lonValue",lonMain);
+            startActivity(b);
         }
     }
